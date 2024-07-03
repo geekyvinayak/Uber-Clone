@@ -1,14 +1,15 @@
-import { View, Text } from 'react-native'
+import { View, Text,TouchableOpacity } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
-import { setDestination } from '../slices/navSlice'
-import { useDispatch } from 'react-redux'
+import { selectDestination, setDestination } from '../slices/navSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 
 const NavigateCard = () => {
     const dispatch = useDispatch();
     const navigation = useNavigation()
+    const destination = useSelector(selectDestination);
   return (
     <SafeAreaView className='bg-white flex-1'>
       <Text className='text-center py-5 text-xl font-semibold'>Good Morning, User</Text>
@@ -50,6 +51,9 @@ const NavigateCard = () => {
           language: 'en',
         }}
       />
+    </View>
+    <View className=' flex-1 justify-center items-center'>
+    {destination && <TouchableOpacity className='bg-black w-20 p-5 rounded-xl justify-center items-center' onPress={()=>navigation.navigate('RideOptionCard')} ><Text className='text-white'>Ride</Text></TouchableOpacity>}
     </View>
     </SafeAreaView>
   )

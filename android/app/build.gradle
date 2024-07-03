@@ -81,6 +81,16 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+         def localProperties = new Properties()
+        def localPropertiesFile = rootProject.file('local.properties')
+        if (localPropertiesFile.exists()) {
+            localPropertiesFile.withInputStream { stream ->
+                localProperties.load(stream)
+            }
+        }
+
+        def googleMapsApiKey = localProperties['googleMapsApiKey'] ?: ""
+        resValue "string", "google_maps_key", googleMapsApiKey
     }
     signingConfigs {
         debug {

@@ -24,7 +24,7 @@ const HomeScreen = () => {
         }}
         fetchDetails={true}
         onPress={(data, details = null) => {
-          // 'details' is provided when fetchDetails = true
+        //  console.log("data",data,details)
           dispatch(setOrigin({
             location: details.geometry.location,
             description: data.description
@@ -40,7 +40,7 @@ const HomeScreen = () => {
         }}
       />
       <NavOptions />
-        <NavFav />
+      <NavFav />
     </View>
   )
 }

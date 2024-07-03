@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, KeyboardAvoidingView, Platform } from 'react-native'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { store } from './store'
@@ -14,12 +14,14 @@ const App = () => {
   return (
     <Provider store={store}>
       <SafeAreaProvider >
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="MapScreen" component={MapScreen} options={{ headerShown: false }} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <KeyboardAvoidingView keyboardVerticalOffset={Platform.Od === 'ios'? -64 :0} behavior={Platform.OS === 'ios'?'padding':"height"}  style={{ flex: 1 }}>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+              <Stack.Screen name="MapScreen" component={MapScreen} options={{ headerShown: false }} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </KeyboardAvoidingView>
       </SafeAreaProvider>
     </Provider>
   )
