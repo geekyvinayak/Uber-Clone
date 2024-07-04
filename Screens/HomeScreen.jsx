@@ -5,8 +5,12 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice';
 import NavFav from '../Components/NavFav';
+import { decode, encode } from "@googlemaps/polyline-codec";
 
 const HomeScreen = () => {
+  const encoded = "_p~iF~ps|U_ulLnnqC_mqNvxq`@";
+  console.log(decode(encoded, 5));
+  
   const dispatch = useDispatch()
   return (
     <View className='p-5'>
