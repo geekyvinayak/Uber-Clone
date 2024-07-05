@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ArrowRightIcon, ChevronLeftIcon } from 'react-native-heroicons/micro'
 import { useNavigation } from '@react-navigation/native'
-import { useSelector } from 'react-redux'
-import { selectTravelTimeInformation } from '../slices/navSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectTravelTimeInformation, setRideStatus } from '../slices/navSlice'
 
 
 const data = [
@@ -40,7 +40,7 @@ const RideOptionCard = () => {
     const navigation = useNavigation()
     const [selected, setSelected] = useState(null)
     const distanceData = useSelector(selectTravelTimeInformation)
-
+    const dispatch = useDispatch()
     const getPrice = (distance,multiplier) =>{
         return (distance/1000)*7*multiplier
     }
@@ -84,7 +84,7 @@ const RideOptionCard = () => {
                 />
             </View>
             {selected && <View>
-                <TouchableOpacity className='bg-black py-3'>
+                <TouchableOpacity className='bg-black py-3' onPress={()=>{dispatch(setRideStatus(true));navigation.navigate('OnGoindRide')}}>
                     <Text className='text-center text-white text-xl'>Choose {selected.title}</Text>
                     </TouchableOpacity>
             </View>}

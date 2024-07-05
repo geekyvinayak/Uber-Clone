@@ -1,15 +1,12 @@
-import { Image, View } from 'react-native'
+import { Image, Text, View,TouchableOpacity } from 'react-native'
 import React from 'react'
 import NavOptions from '../Components/NavOptions'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { useDispatch } from 'react-redux';
 import { setDestination, setOrigin } from '../slices/navSlice';
 import NavFav from '../Components/NavFav';
-import { decode, encode } from "@googlemaps/polyline-codec";
 
 const HomeScreen = () => {
-  const encoded = "_p~iF~ps|U_ulLnnqC_mqNvxq`@";
-  console.log(decode(encoded, 5));
   
   const dispatch = useDispatch()
   return (
@@ -17,6 +14,7 @@ const HomeScreen = () => {
       <Image style={{ width: 100, height: 100, resizeMode: 'contain' }} source={{ uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/2560px-Uber_logo_2018.svg.png", }} />
       <GooglePlacesAutocomplete
         placeholder='Search'
+        // renderRightButton={() => {return <TouchableOpacity onPress={()=>resetLocation}><Text>Clear</Text></TouchableOpacity>}}
         enablePoweredByContainer={false}
         styles={{
           container: {
