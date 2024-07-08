@@ -52,7 +52,7 @@ const RideOptionCard = () => {
                 </TouchableOpacity>
             </View>
             <View className='pl-8'>
-                <Text className='text-center py-5 text-xl'>Select a Ride - {distanceData?.distance.text}</Text>
+                <Text className='text-center py-5 text-xl'>Select a Ride { -  distanceData?.distance.text}</Text>
             </View>
             <View className='flex-1'>
                 <FlatList
@@ -65,7 +65,7 @@ const RideOptionCard = () => {
                                 <Image
                                     source={{ uri: item.image }}
                                     style={{ height: 60, width: 60 }}
-                                />
+                                 />
                                 <View>
                                     <Text className='text-xl font-semibold'>
                                         {item.title}

@@ -15,7 +15,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <SafeAreaProvider >
-        <KeyboardAvoidingView keyboardVerticalOffset={Platform.Od === 'ios'? -64 :0} behavior={Platform.OS === 'ios'?'padding':"height"}  style={{ flex: 1 }}>
+        <KeyboardAvoidingView keyboardVerticalOffset={Platform.Od === 'ios' ? -64 : 0} behavior={Platform.OS === 'ios' ? 'padding' : "height"} style={{ flex: 1 }}>
           <NavigationContainer>
             <Stack.Navigator>
               <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />

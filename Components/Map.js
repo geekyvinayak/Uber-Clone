@@ -17,7 +17,7 @@ async function getDirections(originData, destinationData) {
         latLng: {
           latitude: originData.lat,
           longitude: originData.lng
-        }
+        } 
       }
     },
     destination: {
@@ -116,6 +116,9 @@ const Map = () => {
     setTimeout(() => { getTravelTime() }, 1500);
   }, [origin, destination, process.env.MAP_API])
 
+if(!origin?.location){return <ActivityIndicator size="small" color="#0000ff" />}
+
+  if(origin?.location){
   return (
     <MapView
       ref={mapRef}
@@ -172,7 +175,7 @@ const Map = () => {
         mapRef={mapRef}
       />}
     </MapView>
-  );
+  )};
 };
 
 

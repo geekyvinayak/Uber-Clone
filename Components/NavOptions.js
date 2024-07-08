@@ -1,13 +1,12 @@
 import {
   FlatList,
   Image,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import React from 'react';
-import {ArrowRightIcon, ChevronLeftIcon} from 'react-native-heroicons/micro';
+import {ArrowRightIcon} from 'react-native-heroicons/micro';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { selectOrigin } from '../slices/navSlice';

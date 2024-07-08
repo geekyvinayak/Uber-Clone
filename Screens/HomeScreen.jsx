@@ -1,4 +1,4 @@
-import { Image, Text, View,TouchableOpacity } from 'react-native'
+import { Image, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import NavOptions from '../Components/NavOptions'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -7,8 +7,9 @@ import { setDestination, setOrigin } from '../slices/navSlice';
 import NavFav from '../Components/NavFav';
 
 const HomeScreen = () => {
-  
+
   const dispatch = useDispatch()
+
   return (
     <View className='p-5'>
       <Image style={{ width: 100, height: 100, resizeMode: 'contain' }} source={{ uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/2560px-Uber_logo_2018.svg.png", }} />
@@ -26,7 +27,6 @@ const HomeScreen = () => {
         }}
         fetchDetails={true}
         onPress={(data, details = null) => {
-        //  console.log("data",data,details)
           dispatch(setOrigin({
             location: details.geometry.location,
             description: data.description
